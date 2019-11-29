@@ -1,0 +1,155 @@
+<ion-header mode="ios" no-border>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button color="medium"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/img/getfield_logo.png" width="120">
+       <!--  <ion-text color="primary">
+          <ion-text color="primary" class="fw700">Getfield</ion-text>
+        </ion-text> -->
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="notifications('LOL')">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge color="dark" slot="end">2</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="light" mode="ios">
+    <ion-searchbar mode="ios" placeholder="Buscar cancha" [(ngModel)]="searchKey" color="medium"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!--   <ion-card no-margin class="no-radius">
+    <ion-item lines="none" color="medium">
+      <ion-label>
+        <h2 no-margin class="fw500 no-margin">
+          <ion-text color="dark">Alert / Toast test</ion-text>
+        </h2>
+
+        <p class="text-11x no-margin">
+          <ion-text  color="primary">{{yourLocation}}</ion-text>
+        </p>
+      </ion-label>
+      <ion-button shape="round" fill="outline" size="small" color="primary" (click)="alertLocation()">
+        Ubicación
+        <ion-icon name="locate"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card> -->
+
+
+
+  <div style="position: relative;margin-top: 0.5rem;" class="animated fadeIn fast">
+      <ion-text color="light" style="    position: absolute;
+      color: #aeaaaa;
+      left: 1.3rem;
+      top: -1rem;">
+          <h6>Canchas destacadas</h6>
+        </ion-text>
+            <ion-slides>
+              <ion-slide text-left >
+                  <ion-card mode="ios" style="
+                  width: 100%;  background-position: center; background-size: cover;">
+<!--                     <div class="badge-discount" >-40% descuento</div>
+ -->                     <div class="badge-price" >$45.000 / hora </div>
+  
+                          <div class="badge-maxplayers"><ion-icon name="person" mode="ios"></ion-icon>8</div>
+                          <div class="field-discount">-40% descuento</div>
+  
+                      <img src="assets/img/cancha1.jpg" style="position: absolute; width: 100%; height: 100%">
+                    <div style="position: absolute; width: 100%; height: 100%; opacity: 0.5;  background-image: linear-gradient(#f72e48,#e88041);" ></div>
+                    <div style="width: 100%; height: 100px;"></div>
+                      <ion-card-header mode="ios">
+                        <ion-card-subtitle mode="ios" style="color: #e7e5e5">Prueba establec.</ion-card-subtitle>
+                        <ion-card-title mode="ios" style="color: white">Prueba cancha</ion-card-title>
+                      </ion-card-header>
+                    </ion-card>
+              </ion-slide>
+
+
+              <ion-slide text-left >
+                  <ion-card mode="ios" style="
+                  width: 100%;  background-position: center; background-size: cover;">
+                     <div class="badge-price" >$45.000 / hora</div>
+  
+                    <div class="badge-maxplayers"><ion-icon name="person" mode="ios"></ion-icon>8</div>
+                    <div class="field-discount">-40% descuento</div>
+  
+                      <img src="assets/img/cancha2.jpg" style="position: absolute; width: 100%; height: 100%">
+                    <div style="position: absolute; width: 100%; height: 100%; opacity: 0.5;  background-image: linear-gradient(#f72e48,#e88041);" ></div>
+                    <div style="width: 100%; height: 100px;"></div>
+                      <ion-card-header mode="ios">
+                        <ion-card-subtitle mode="ios" style="color: #e7e5e5">Prueba establec.</ion-card-subtitle>
+                        <ion-card-title mode="ios" style="color: white">Prueba cancha</ion-card-title>
+                      </ion-card-header>
+                    </ion-card>
+              </ion-slide>
+
+
+
+
+      
+          </ion-slides>
+   </div> 
+
+
+
+<!--   <ion-card class="bg-white">
+    <ion-img [src]="themeCover"></ion-img>
+    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+      Modal 1: Modal Image
+    </ion-button>
+  </ion-card>
+
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+    Modal 2: Search Filter
+  </ion-button> -->
+
+
+  <ion-text color="light" style=" position: relative;
+  color: #aeaaaa;
+  left: 1.5rem;">
+      <h6>Canchas</h6>
+    </ion-text>
+
+  <ion-list no-lines>
+
+    <ion-item  >
+      <ion-thumbnail slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-thumbnail>
+      <ion-label>
+          <h2 style="color: #f5375b;font-size: larger;">La macarena</h2>
+          <p style="position: relative; bottom: 7px;">La Bombonera</p>
+          <p style="position: relative; top: -10px;"> <ion-badge style="margin-right: 4px;" color="primary"><ion-icon name="man"></ion-icon> 8</ion-badge> <ion-badge color="primary"><ion-icon name="expand"></ion-icon> 60x60</ion-badge></p>
+          <p style="position: relative; top: -15px;">consectetur adipiscing elit. Duis ut urna neque.</p>
+        </ion-label>
+    </ion-item>
+   
+
+        <ion-item >
+            <ion-thumbnail slot="start">
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-thumbnail>
+            <ion-label>
+                <h2 style="color: #f5375b;font-size: larger;">La macarena <ion-badge color="primary" style="position: relative;top: 4px;">-30% OFF</ion-badge></h2>
+                <p style="position: relative; bottom: 7px;">La Bombonera</p>
+                <p style="position: relative; top: -10px;"> <ion-badge style="margin-right: 4px;" color="primary"><ion-icon name="man"></ion-icon> 8</ion-badge> <ion-badge color="primary"><ion-icon name="expand"></ion-icon> 60x60</ion-badge></p>
+                <p style="position: relative; top: -15px;">consectetur adipiscing elit. Duis ut urna neque.</p>
+              </ion-label>
+          </ion-item>
+  
+    </ion-list>
+
+
+
+  
+</ion-content>
