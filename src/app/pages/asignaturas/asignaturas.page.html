@@ -1,0 +1,92 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+          <ion-back-button  defaultHref="/home-results" ></ion-back-button>
+        </ion-buttons>
+    <ion-title color="dark">Asignaturas</ion-title>
+
+    <ion-buttons slot="end" >
+      <ion-icon name="add" (click)="crearAsignatura()" size="large"></ion-icon>
+  </ion-buttons>
+
+   <!-- <ion-thumbnail slot="end" (click)="crearAsignatura()">
+      <img src="assets/img/add.png">
+      </ion-thumbnail> -->
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+  <ion-list no-lines>
+
+    <ion-item-sliding #slide *ngFor="let a of asignaturas">
+
+      <ion-item>
+              <ion-item  >
+                  <ion-thumbnail slot="start">
+                    <img src="assets/img/asignatura.png">
+                  </ion-thumbnail>
+                  <ion-label>
+                      <h2 style="color: #2477bb ;font-size: larger;">{{a.nombre}} <span style="color: #657b8d">[{{a.salon}}]</span> </h2>  
+                      <br>
+                      <p style="position: relative;top: -1.5rem;">Profesor {{a.profesor}}</p>
+                      <p style="position: relative; top: -1.6rem;">{{a.descripcion}}</p>
+                    </ion-label>
+                </ion-item>
+
+      </ion-item>
+
+      <ion-item-options>
+          <ion-item-option color="info"  (click)="editarAsignatura(a)">
+            
+              <ion-icon slot="end" name="create" ></ion-icon>
+              Editar
+            </ion-item-option>
+
+
+          <ion-item-option color="danger"  (click)="eliminar(a)">
+            
+            <ion-icon slot="end" name="trash"></ion-icon>
+            Eliminar
+          </ion-item-option>
+          
+        </ion-item-options>
+
+
+    </ion-item-sliding>
+ 
+ 
+
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+    <!--<ion-card>
+        <ion-item >
+        <ion-label>
+          
+            <h2 style=" color: #234f74 ;font-size: larger;">Asignatura: {{a.nombre}} <br> Profesor: {{a.profesor}} <br> Salon de Clases: {{a.salon}} <br> Descripcion:  {{a.descripcion}} </h2> 
+    
+        </ion-label> 
+      </ion-item>  
+  </ion-card> -->
+
+  
+
+</ion-list>
+</ion-content>
+

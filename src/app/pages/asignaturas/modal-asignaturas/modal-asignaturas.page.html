@@ -1,0 +1,129 @@
+<ion-header no-border mode="ios">
+  <ion-toolbar mode="ios">
+      <ion-buttons slot="start"   (click)="cerrar()">
+          <ion-back-button defaultHref="/asignaturas" ></ion-back-button>
+        </ion-buttons>
+        <ion-title color="dark" *ngIf="estado == 'crear'">Agregar Asignatura</ion-title>
+        <ion-title color="dark" *ngIf="estado == 'editar'">Editar Asignatura</ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+   
+    <ion-card  mode="ios"  >
+
+
+        <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+    
+            <ion-list>
+      
+                <ion-item >
+                    <ion-label> Nombre Asignatura:</ion-label>
+                    <ion-input placeholder="Nombre asignatura"
+                              name="asignatura"
+                              [(ngModel)]="asignatura.nombre"
+                              required >
+                    </ion-input>
+                  </ion-item>
+
+    
+                <ion-item>
+                    <ion-label>Nombre Profesor:</ion-label>
+                    <ion-input  placeholder="Nombre del profesor"
+                                name="titulo"
+                                [(ngModel)]="asignatura.profesor" >
+                    </ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Salón de Clases:</ion-label>
+                    <ion-input  placeholder="Salón de clases"
+                                name="titulo"
+                                [(ngModel)]="asignatura.salon" >
+                    </ion-input>
+                </ion-item>
+    
+                
+    
+                <ion-item>
+                    <ion-label>Detalles:</ion-label>
+                    <ion-textarea rows="6" cols="20"
+                                 placeholder="......."
+                                 name="detalles"
+                                [(ngModel)]="asignatura.descripcion"
+                                ></ion-textarea>
+                </ion-item>
+    
+    
+    
+          </ion-list>
+    
+    
+    
+           <ion-row class="top-20">
+                   <ion-col>
+                      <ion-button fill="clear" color="secondary " (click)="cerrar()">Cancelar</ion-button>
+                   </ion-col> 
+                    
+                   <ion-col *ngIf="estado=='crear'">
+                      <ion-button type="submit" [disabled]="!formulario.valid" fill="clear" color="dark" (click)="crear()">Guardar</ion-button>
+                   </ion-col>
+
+                   <ion-col *ngIf="estado=='editar'">
+                    <ion-button type="submit" [disabled]="!formulario.valid" fill="clear" color="dark" (click)="editar()">Editar</ion-button>
+                 </ion-col>
+
+            </ion-row>
+            
+        </form>
+    
+                
+       </ion-card>
+              
+
+
+
+</ion-content>
+
+
+<!--
+   <ion-card  mode="ios"  >
+
+    <ion-item >
+        <ion-label>Nombre Asignatura:</ion-label>
+        <ion-input placeholder="Nombre asignatura" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+            <ion-label>Nombre Profesor:</ion-label>
+            <ion-input  placeholder="Nombre del profesor"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Salón de Clases:</ion-label>
+              <ion-input placeholder="Salón de clases"></ion-input>
+            </ion-item>
+
+
+              <ion-item>
+                  <ion-label>Detalles:</ion-label>
+                  <ion-textarea rows="6" cols="20" placeholder="......."></ion-textarea>
+              </ion-item>
+
+            
+              </ion-card>
+
+ 
+         <ion-row class="top-20">
+                  <ion-col>
+                      <ion-button   color="medium">Cancelar</ion-button>
+                  </ion-col> 
+              
+                  <ion-col>
+                      <ion-button   color="dark">Guardar</ion-button>
+                  </ion-col>
+                </ion-row>
+          
+-->

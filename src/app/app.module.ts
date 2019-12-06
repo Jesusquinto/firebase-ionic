@@ -25,12 +25,22 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
+import { Base64 } from '@ionic-native/base64/ngx';
 
+import { Media } from '@ionic-native/media/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
+import { HomeResultsPage } from './pages/home-results/home-results.page';
+import { AudiosPage } from './pages/audios/audios.page';
+
+
+
 
 @NgModule({
-  declarations: [AppComponent, NotificationsComponent],
+  declarations: [AppComponent, NotificationsComponent,HomeResultsPage, AudiosPage],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,7 +51,10 @@ import { environment } from 'src/environments/environment';
     SearchFilterPageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   entryComponents: [NotificationsComponent],
   providers: [
@@ -51,7 +64,10 @@ import { environment } from 'src/environments/environment';
     GooglePlus,
     AngularFireAuth,
     AngularFireFunctions,
-    AngularFirestore
+    AngularFirestore,
+    Media,
+    File,
+    Base64
   ],
   bootstrap: [AppComponent]
 })

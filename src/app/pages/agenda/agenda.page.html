@@ -1,0 +1,86 @@
+<ion-header mode="ios" no-border>
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start">
+            <ion-back-button  defaultHref="/home-results" ></ion-back-button>
+          </ion-buttons>
+      <ion-title color="dark">Agenda</ion-title>
+  
+          <ion-buttons slot="end" >
+              <ion-icon name="add" (click)="crearAgenda()" size="large"></ion-icon>
+          </ion-buttons>
+
+ <!--      <ion-thumbnail slot="end" (click)="crearAgenda()">
+        <img src="assets/img/add.png">
+        </ion-thumbnail> -->
+    
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>  
+    <ion-list no-lines>
+
+      <ion-item-sliding *ngFor="let a of agendas">
+
+        <ion-item mode="ios">
+                <ion-item  >
+                    <ion-thumbnail slot="start">
+                      <img src="assets/img/agenda.png">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h2 style="color: #2477bb ;font-size: larger;">{{a.titulo}} </h2>  
+                        <br>
+                        <span style="color: #657b8d; position: relative;top: -1.5rem;">[{{a.asignatura.nombre}}]</span> 
+                        <p style="position: relative;top: -1.6rem;">Para {{a.fecha | date}}</p>
+                        <p style="position: relative; top: -1.6rem;">{{a.descripcion}}</p>
+                      </ion-label>
+                  </ion-item>
+
+        </ion-item>
+
+        <ion-item-options>
+            <ion-item-option color="info"  (click)="editarAgenda(a)">
+              
+                <ion-icon slot="end" name="create" ></ion-icon>
+                Editar
+              </ion-item-option>
+
+
+            <ion-item-option color="danger"  (click)="eliminar(a)">
+              
+              <ion-icon slot="end" name="trash"></ion-icon>
+              Eliminar
+            </ion-item-option>
+            
+          </ion-item-options>
+
+
+      </ion-item-sliding>
+   
+   
+
+
+      
+
+
+
+
+
+
+
+
+
+   
+   <!--     <ion-card>
+           <ion-item >
+           <ion-label>
+             
+            <h2 style=" color: #234f74 ;font-size: larger;">Asignatura: {{a.nombre}} <br> Titulo: {{a.titulo}} <br> Fecha de Entrega: {{a.fecha| date}} <br> Descripcion:  {{a.descripcion}} </h2> 
+       
+           </ion-label> 
+         </ion-item>  
+     </ion-card> -->
+   
+    
+   
+   </ion-list>
+   </ion-content>

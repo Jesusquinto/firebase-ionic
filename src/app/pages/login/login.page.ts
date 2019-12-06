@@ -84,7 +84,7 @@ export class LoginPage implements OnInit {
 
   googleLogin(){
     console.log("ksjfjslk")
-    this.servicio.googleLogin().then(result => {console.log("perfecto", result)}).catch(error => {console.log("ocurrió un error ",error) });
+    this.servicio.googleLogin().then(result => {console.log("perfecto", result); this.navCtrl.navigateRoot('/home-results')}).catch(error => {console.log("ocurrió un error ",error) });
   }
 
   // // //

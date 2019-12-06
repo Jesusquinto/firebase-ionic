@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Pages } from './interfaces/pages';
+import { AuthService } from './services/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -15,11 +17,13 @@ export class AppComponent {
 
   public appPages: Array<Pages>;
   public opionSelected: string;
+  public user: any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    private servicio: AuthService
   ) {
     this.appPages = [
     /*   {
@@ -30,7 +34,7 @@ export class AppComponent {
         color: 'light'
       }, */
       {
-        title: 'About',
+        title: 'Información',
         url: '/about',
         direct: 'forward',
         icon: 'information-circle-outline',
@@ -38,7 +42,7 @@ export class AppComponent {
       },
 
       {
-        title: 'App Settings',
+        title: 'Configuración',
         url: '/settings',
         direct: 'forward',
         icon: 'cog',
@@ -56,7 +60,11 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    }).catch(() => {});
+      let user = this.servicio.isAuth().subscribe(user =>{
+        this.user = user;
+      });
+      });
+
   }
 
   goToEditProgile() {

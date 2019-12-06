@@ -1,0 +1,133 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+      <ion-buttons slot="start">
+          <ion-back-button  defaultHref="/home-results" ></ion-back-button>
+        </ion-buttons>
+    <ion-title color="dark">Notas</ion-title>
+
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card mode="ios">
+      
+      <ion-list>
+
+      <ion-row >
+          <ion-col>
+              <ion-item >
+                  <ion-label style=" color: #2477bb  ;font-size: larger;"> Nota1:</ion-label>
+                  <ion-input placeholder="Nota"
+                              type="number"
+                              [(ngModel)]="nota1"
+                              >
+    
+                  </ion-input>
+                </ion-item>
+          </ion-col> 
+           
+
+          <ion-col >
+              <ion-item >
+                  <ion-label style=" color: #2477bb  ;font-size: larger;"> %:</ion-label>
+                  <ion-input placeholder="%"
+                              type="number"
+                              [(ngModel)]="porce1">
+    
+                  </ion-input>
+                </ion-item>
+        </ion-col>
+   </ion-row>
+
+
+   <ion-row >
+      <ion-col>
+          <ion-item >
+              <ion-label style=" color: #2477bb  ;font-size: larger;"> Nota2:</ion-label>
+              <ion-input placeholder="Nota"
+                          type="number"
+                          [(ngModel)]="nota2">
+
+              </ion-input>
+            </ion-item>
+      </ion-col> 
+       
+
+      <ion-col >
+          <ion-item >
+              <ion-label style=" color: #2477bb  ;font-size: larger;"> %:</ion-label>
+              <ion-input placeholder="%"
+                         type="number"
+                         [(ngModel)]="porce2">
+                         
+
+              </ion-input>
+            </ion-item>
+    </ion-col>
+</ion-row>
+
+
+<ion-row >
+    <ion-col>
+        <ion-item >
+            <ion-label style=" color: #2477bb  ;font-size: larger;"> Nota3:</ion-label>
+            <ion-input  placeholder="Nota"
+                        type="number"
+                        [(ngModel)]="nota3">
+
+            </ion-input>
+          </ion-item>
+    </ion-col> 
+     
+
+    <ion-col >
+        <ion-item >
+            <ion-label style=" color: #2477bb  ;font-size: larger;"> %:</ion-label>
+            <ion-input placeholder="%"
+                        type="number"
+                       [(ngModel)]="porce3">
+
+            </ion-input>
+          </ion-item>
+  </ion-col>
+
+</ion-row>
+
+
+    <ion-button   expand="full"  fill="clear" color="dark" (click)="calcular()">Calcular</ion-button>
+
+
+    <ion-row >
+        <ion-col>
+            <ion-item >
+                <ion-label style=" color: #2477bb  ;font-size: larger;"> Nota4:</ion-label>
+                <ion-input  placeholder="Nota"
+                            type="number"
+                            [(ngModel)]="porcentaje">
+    
+                </ion-input>
+              </ion-item>
+        </ion-col> 
+         
+    
+        <ion-col >
+            <ion-item >
+                <ion-label style=" color: #2477bb  ;font-size: larger;"> Porcentaje:</ion-label>
+                <ion-input placeholder="%"
+                            type="number"
+                           [(ngModel)]="porcen">
+    
+                </ion-input>
+              </ion-item>
+      </ion-col>
+    
+    </ion-row>
+
+    
+          </ion-list>
+       
+  </ion-card>
+
+</ion-content>

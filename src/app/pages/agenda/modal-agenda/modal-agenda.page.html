@@ -1,0 +1,136 @@
+<ion-header mode="ios" no-border>
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start"  (click)="cerrar()">
+            <ion-back-button  defaultHref="/agenda"></ion-back-button>
+          </ion-buttons>
+      <ion-title color="dark" *ngIf="estado == 'crear'">Agregar Tarea</ion-title>
+      <ion-title color="dark" *ngIf="estado == 'editar'">Editar Tarea</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+
+
+ 
+
+<ion-content>
+
+    <ion-card  mode="ios"  >
+
+    <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+
+      <ion-list>
+
+          <ion-item >
+              <ion-label> Asignatura:</ion-label>
+                <ion-select placeholder="Seleccionar asignatura" required  [(ngModel)]="agenda.asignatura" [ngModelOptions]="{standalone: true}">
+                  <ion-select-option [value]="a" *ngFor="let a of asignaturas">{{a.nombre}} [{{a.salon}}] </ion-select-option>
+                </ion-select>
+          </ion-item>
+
+     <!--      <ion-item>
+              <ion-input placeholder="Nombre de la asignatura"
+                        name="asignatura"
+                        [(ngModel)]="agenda.asignatura"
+                        required >
+              </ion-input>
+            </ion-item> -->
+
+            <ion-item>
+                <ion-label>Titulo:</ion-label>
+                <ion-input  placeholder="Titulo del trabajo"
+                            name="titulo"
+                            [(ngModel)]="agenda.titulo"
+                            required >
+                </ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Fecha de Entrega:</ion-label>
+                <ion-datetime displayFormat="DD MM YY"
+                               cancelText="Cancelar" 
+                               doneText="Guardar" 
+                               placeholder="Seleccionar fecha"
+                               min="2019-01-01"
+                              max="2030-12-31"
+                               name="fecha_entrega"
+                            [(ngModel)]="agenda.fecha"
+                             >
+                </ion-datetime>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Descripcion:</ion-label>
+                <ion-textarea rows="6" cols="20"
+                             placeholder="......."
+                             name="descripcion"
+                            [(ngModel)]="agenda.descripcion"
+                            ></ion-textarea>
+            </ion-item>
+
+
+
+      </ion-list>
+
+
+
+      <ion-row class="top-20">
+        <ion-col>
+           <ion-button fill="clear" color="secondary " (click)="cerrar()">Cancelar</ion-button>
+        </ion-col> 
+         
+        <ion-col *ngIf="estado=='crear'">
+           <ion-button type="submit" [disabled]="!formulario.valid" fill="clear" color="dark" (click)="crear()">Guardar</ion-button>
+        </ion-col>
+
+        <ion-col *ngIf="estado=='editar'">
+         <ion-button type="submit" [disabled]="!formulario.valid" fill="clear" color="dark" (click)="editar()">Editar</ion-button>
+      </ion-col>
+
+ </ion-row>
+        
+    </form>
+
+            
+   </ion-card>
+
+
+</ion-content>
+
+
+
+
+<!--<ion-card  mode="ios"  >
+      
+    <ion-item >
+        <ion-label> Asignatura:</ion-label>
+        <ion-input placeholder="Nombre de la asignatura" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+            <ion-label>Titulo:</ion-label>
+            <ion-input  placeholder="Titulo del trabajo"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Fecha de Entrega:</ion-label>
+              <ion-datetime displayFormat="MM DD YY" cancelText="Cancelar!!" doneText="Guardar" placeholder="Seleccionar fecha"></ion-datetime>
+            </ion-item>
+
+
+              <ion-item>
+                  <ion-label>Detalles:</ion-label>
+                  <ion-textarea rows="6" cols="20" placeholder="......."></ion-textarea>
+                </ion-item>
+
+            
+                </ion-card>-->
+
+                <!--<ion-row class="top-20">
+                    <ion-col>
+                        <ion-button   color="medium">Cancelar</ion-button>
+                    </ion-col> 
+                
+                    <ion-col>
+                        <ion-button   color="dark">Guardar</ion-button>
+                    </ion-col>
+                  </ion-row>-->

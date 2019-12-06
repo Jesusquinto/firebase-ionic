@@ -1,0 +1,213 @@
+<ion-header mode="ios" no-border>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button color="medium"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/img/getfield_logo.png" width="120">
+       <!--  <ion-text color="primary">
+          <ion-text color="primary" class="fw700">Getfield</ion-text>
+        </ion-text> -->
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" >
+        <ion-icon name="microphone"></ion-icon>
+        <ion-badge color="dark" slot="end">{{audioList?.length}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="light" mode="ios">
+    <ion-searchbar mode="ios" placeholder="Buscar grabación" [(ngModel)]="searchKey" color="medium"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" >
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!--   <ion-card no-margin class="no-radius">
+    <ion-item lines="none" color="medium">
+      <ion-label>
+        <h2 no-margin class="fw500 no-margin">
+          <ion-text color="dark">Alert / Toast test</ion-text>
+        </h2>
+
+        <p class="text-11x no-margin">
+          <ion-text  color="primary">{{yourLocation}}</ion-text>
+        </p>
+      </ion-label>
+      <ion-button shape="round" fill="outline" size="small" color="primary" (click)="alertLocation()">
+        Ubicación
+        <ion-icon name="locate"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card> -->
+
+
+
+<!--   <div style="position: relative;margin-top: 0.5rem;" class="animated fadeIn fast">
+      <ion-text color="light" style="    position: absolute;
+      color: #aeaaaa;
+      left: 1.3rem;
+      top: -1rem;">
+          <h6>Canchas destacadas</h6>
+        </ion-text>
+            <ion-slides>
+              <ion-slide text-left >
+                  <ion-card mode="ios" style="
+                  width: 100%;  background-position: center; background-size: cover;">
+                    <div class="badge-price" >$45.000 / hora </div>
+  
+                          <div class="badge-maxplayers"><ion-icon name="person" mode="ios"></ion-icon>8</div>
+                          <div class="field-discount">-40% descuento</div>
+  
+                      <img src="assets/img/cancha1.jpg" style="position: absolute; width: 100%; height: 100%">
+                    <div style="position: absolute; width: 100%; height: 100%; opacity: 0.5;  background-image: linear-gradient(#f72e48,#e88041);" ></div>
+                    <div style="width: 100%; height: 100px;"></div>
+                      <ion-card-header mode="ios">
+                        <ion-card-subtitle mode="ios" style="color: #e7e5e5">Prueba establec.</ion-card-subtitle>
+                        <ion-card-title mode="ios" style="color: white">Prueba cancha</ion-card-title>
+                      </ion-card-header>
+                    </ion-card>
+              </ion-slide>
+
+
+              <ion-slide text-left >
+                  <ion-card mode="ios" style="
+                  width: 100%;  background-position: center; background-size: cover;">
+                     <div class="badge-price" >$45.000 / hora</div>
+  
+                    <div class="badge-maxplayers"><ion-icon name="person" mode="ios"></ion-icon>8</div>
+                    <div class="field-discount">-40% descuento</div>
+  
+                      <img src="assets/img/cancha2.jpg" style="position: absolute; width: 100%; height: 100%">
+                    <div style="position: absolute; width: 100%; height: 100%; opacity: 0.5;  background-image: linear-gradient(#f72e48,#e88041);" ></div>
+                    <div style="width: 100%; height: 100px;"></div>
+                      <ion-card-header mode="ios">
+                        <ion-card-subtitle mode="ios" style="color: #e7e5e5">Prueba establec.</ion-card-subtitle>
+                        <ion-card-title mode="ios" style="color: white">Prueba cancha</ion-card-title>
+                      </ion-card-header>
+                    </ion-card>
+              </ion-slide>
+
+
+
+
+      
+          </ion-slides>
+   </div> 
+ -->
+
+
+<!--   <ion-card class="bg-white">
+    <ion-img [src]="themeCover"></ion-img>
+    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+      Modal 1: Modal Image
+    </ion-button>
+  </ion-card>
+
+  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+    Modal 2: Search Filter
+  </ion-button> -->
+      <ion-text color="light" style=" position: relative;
+                                      color: #aeaaaa;
+                                      left: 1.5rem;">
+                                    <h6>Grabar clase</h6>
+             </ion-text>
+  <ion-card mode="ios">
+    <ion-card-content>
+      <ion-card-title>
+   
+
+          <ion-row>
+              <ion-col>
+
+                  <ion-thumbnail   *ngIf="!recording && nombreClase.length < 6">
+                      <img src="assets/img/audio_recod_disabled.png">              
+                    </ion-thumbnail>
+
+                  <ion-thumbnail   (click)="startRecord()" *ngIf="!recording && nombreClase.length >= 6">
+                      <img src="assets/img/audio_recod.png">              
+                    </ion-thumbnail>
+                    <p style="color: #0066CC;" *ngIf="!recording && nombreClase.length >= 6">Grabar clase</p>
+                    <p style="color: rgb(193, 193, 193);" *ngIf="!recording && nombreClase.length < 6">Nombra la clase</p>
+
+                    <ion-thumbnail   (click)="stopRecord()" *ngIf="recording">
+                        <img src="assets/img/audio_recod_stop.png">
+                      </ion-thumbnail>
+                      <ion-badge *ngIf="recording" color="primary" style="margin-left: .25rem;"><ion-icon name="timer"></ion-icon> {{formatear(recordDuration)}}</ion-badge>
+                      <p style="color: #0066CC;" *ngIf="recording">Parar grabación</p>
+              </ion-col>
+              <ion-col>
+                  <ion-item>
+                      <ion-label position="floating">Nombre de la clase</ion-label>
+                      <ion-input clearInput="true" [(ngModel)]="nombreClase"></ion-input>
+                    </ion-item>
+
+              </ion-col>
+            </ion-row>
+
+
+       
+
+
+
+        <!-- <button ion-button primary (click)="stopRecord()" *ngIf="recording"><ion-icon name="mic-off"></ion-icon>&nbsp;&nbsp;Stop Record</button>
+        <button ion-button primary (click)="startRecord()" *ngIf="!recording"><ion-icon name="mic"></ion-icon>&nbsp;&nbsp;Start Record</button> -->
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-text color="light" style=" position: relative;
+  color: #aeaaaa;
+  left: 1.5rem;">
+      <h6>Clases grabadas</h6>
+    </ion-text>
+
+  <ion-list no-lines>
+
+      <ion-text color="light" style=" position: relative;
+      color: #aeaaaa;
+      left: 2rem;" *ngIf="audioList.length == 0">
+          <h5>No tiene clases grabadas aún</h5>
+        </ion-text>
+
+      <ion-item-sliding *ngFor ="let audio of audioList; index as i" #slide>
+
+
+    <ion-item  style="transition: height  .3s;" [ngClass]="{'isSelected': audio.isPlay}">
+      <ion-thumbnail slot="start" *ngIf="!audio.isPlay" (click)="playAudio(audio, i)">
+        <img src="assets/img/audio_play.png">
+      </ion-thumbnail>
+      <ion-thumbnail slot="start" *ngIf="audio.isPlay" (click)="stopAudio(audio)">
+        <img src="assets/img/audio_stop.png">
+      </ion-thumbnail>
+
+      <ion-label>
+          <h4 style="color: #0066CC;font-size: unset">{{audio.filename}}</h4>
+          <p >{{audio.fecha}}</p>
+          <p > <ion-badge *ngIf="audio.isPlay" color="primary" style="margin-right: .25rem;"><ion-icon name="timer"></ion-icon> {{formatear(audio.status)}}</ion-badge>  <ion-badge style="margin-right: 4px;" color="primary"><ion-icon name="time"></ion-icon> {{audio.duration}}</ion-badge> </p>
+          <ion-range *ngIf="audio.isPlay" min="0" [max]="audio.seconds" [value]="audio.status"  
+            ></ion-range>
+        </ion-label>
+    </ion-item>
+    <ion-item-options>
+        <ion-item-option color="danger" (click)="deleteAudio(audio)">
+          <ion-icon slot="end" name="trash"></ion-icon>
+          Eliminar
+        </ion-item-option>
+        
+      </ion-item-options>
+
+   
+      </ion-item-sliding>
+  
+    </ion-list>
+
+
+
+  
+</ion-content>
